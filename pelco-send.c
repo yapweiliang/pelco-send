@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     // Declare variables and structures
     unsigned char pelco_packet[PELCO_PACKET_LENGTH];
     int baudrate = 2400;  // default baud rate
-    int comport = 3; // default com port
+    int comport = 4; // default com port
     int checksum = 0;
     char dev_name[MAX_PATH];
     int camera_id = 1;
@@ -89,6 +89,7 @@ int main(int argc, char *argv[])
     } 
     else
     {
+        fprintf(stderr, "This sends a PELCO-D packet to the specified camera, to call a specified preset.\n\n");
         fprintf(stderr, "Usage:\n\t%s CAMERA_PRESET [/camera CAMERA_ID] [/baudrate BAUDRATE] [/comN]\n\n", argv[0]);
         fprintf(stderr, "Example:\n\t%s 1 /camera 2 /com%d\n\n", argv[0], comport);
         return 1;
